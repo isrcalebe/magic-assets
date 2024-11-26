@@ -1,0 +1,16 @@
+<Project>
+  <PropertyGroup Label="C#">
+    <LangVersion>12.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+  <PropertyGroup Label="NuGet">
+    <Authors>Israel Calebe</Authors>
+    <Copyright>Copyright (c) 2024 Israel Calebe</Copyright>
+    <Product>Magic Assets</Product>
+    <PackageReleaseNotes>Automated release.</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/isrcalebe/magic-assets</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/isrcalebe/magic-assets</RepositoryUrl>
+  </PropertyGroup>
+</Project>

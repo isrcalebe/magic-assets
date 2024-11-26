@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Label="Project">
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Label="NuGet">
+    <Title>Magic Assets</Title>
+    <PackageId>MagicAssets</PackageId>
+    <PackageTags>assets;resources;content;magic-assets</PackageTags>
+  </PropertyGroup>
+</Project>

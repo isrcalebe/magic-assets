@@ -13,6 +13,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Additional Items", "Additio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicAssets.Core", "core\MagicAssets.Core.csproj", "{D1772395-A23D-46C6-9C46-C3654C20BD7C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{49F5CF32-0994-4F8A-B804-B24535D5B7D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicAssets.Samples.BasicExample", "samples\basic-example\MagicAssets.Samples.BasicExample.csproj", "{EA304E6A-0905-4C7F-8A5D-ED744FE88907}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{83563B0C-18CF-4EEE-8575-CC10B52CB2EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicAssets.Providers.AssemblyAssetServer", "providers\assembly\MagicAssets.Providers.AssemblyAssetServer.csproj", "{F12622FA-5360-4A9E-8464-A3A771AE7085}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicAssets.Providers.NamespacedAssetServer", "providers\namespaced\MagicAssets.Providers.NamespacedAssetServer.csproj", "{9E907A8C-FF41-4E2F-AAE6-361FD715F4A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,8 +33,25 @@ Global
 		{D1772395-A23D-46C6-9C46-C3654C20BD7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1772395-A23D-46C6-9C46-C3654C20BD7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1772395-A23D-46C6-9C46-C3654C20BD7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F12622FA-5360-4A9E-8464-A3A771AE7085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F12622FA-5360-4A9E-8464-A3A771AE7085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F12622FA-5360-4A9E-8464-A3A771AE7085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F12622FA-5360-4A9E-8464-A3A771AE7085}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E907A8C-FF41-4E2F-AAE6-361FD715F4A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E907A8C-FF41-4E2F-AAE6-361FD715F4A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E907A8C-FF41-4E2F-AAE6-361FD715F4A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E907A8C-FF41-4E2F-AAE6-361FD715F4A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA304E6A-0905-4C7F-8A5D-ED744FE88907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA304E6A-0905-4C7F-8A5D-ED744FE88907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA304E6A-0905-4C7F-8A5D-ED744FE88907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA304E6A-0905-4C7F-8A5D-ED744FE88907}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F12622FA-5360-4A9E-8464-A3A771AE7085} = {83563B0C-18CF-4EEE-8575-CC10B52CB2EC}
+		{9E907A8C-FF41-4E2F-AAE6-361FD715F4A7} = {83563B0C-18CF-4EEE-8575-CC10B52CB2EC}
+		{EA304E6A-0905-4C7F-8A5D-ED744FE88907} = {49F5CF32-0994-4F8A-B804-B24535D5B7D3}
 	EndGlobalSection
 EndGlobal

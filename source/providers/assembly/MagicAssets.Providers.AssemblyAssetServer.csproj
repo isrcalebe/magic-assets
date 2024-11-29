@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Label="Project">
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <AssemblyTitle>MagicAssets Assembly Asset Server</AssemblyTitle>
+    <AssemblyName>MagicAssets.Providers.AssemblyAssetServer</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Label="NuGet">
+    <Title>Magic Assets</Title>
+    <Description>A lightweight and extensible asset management library for .NET, enabling efficient loading and organization of resources across assemblies and custom providers.</Description>
+    <PackageId>MagicAssets.Providers.AssemblyAssetServer</PackageId>
+    <PackageTags>assets;resources;content;magic-assets</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\MagicAssets.Core.csproj" />
+  </ItemGroup>
+</Project>

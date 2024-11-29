@@ -1,10 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup Label="Project">
     <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <AssemblyTitle>MagicAssets</AssemblyTitle>
+    <AssemblyName>MagicAssets</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Label="NuGet">
     <Title>Magic Assets</Title>
     <PackageId>MagicAssets</PackageId>
     <PackageTags>assets;resources;content;magic-assets</PackageTags>
   </PropertyGroup>
+  <ItemGroup Label="Internals">
+    <InternalsVisibleTo Include="MagicAssets.Providers.AssemblyAssetServer" />
+    <InternalsVisibleTo Include="MagicAssets.Providers.NamespacedAssetServer" />
+  </ItemGroup>
 </Project>

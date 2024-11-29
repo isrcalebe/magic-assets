@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Label="Project">
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <AssemblyTitle>MagicAssets Namespaced Asset Server</AssemblyTitle>
+    <AssemblyName>MagicAssets.Providers.NamespacedAssetServer</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup Label="Project References">
+    <ProjectReference Include="..\..\core\MagicAssets.Core.csproj" />
+  </ItemGroup>
+</Project>

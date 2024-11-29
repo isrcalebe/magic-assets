@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Label="Project">
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup Label="Embedded Resources">
+    <EmbeddedResource Include="Texts/**/*" />
+  </ItemGroup>
+  <ItemGroup Label="Project References">
+    <ProjectReference Include="..\..\core\MagicAssets.Core.csproj" />
+    <ProjectReference Include="..\..\providers\assembly\MagicAssets.Providers.AssemblyAssetServer.csproj" />
+    <ProjectReference Include="..\..\providers\namespaced\MagicAssets.Providers.NamespacedAssetServer.csproj" />
+  </ItemGroup>
+</Project>

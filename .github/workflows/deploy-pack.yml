@@ -29,7 +29,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: forgekit
+          name: magic-assets
           path: ${{steps.artifactsPath.outputs.nuget_artifacts}}/*.nupkg
 
       - name: Publish packages to NuGet
@@ -58,7 +58,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: forgekit-provider-assembly
+          name: magic-assets-provider-assembly
           path: ${{steps.artifactsPath.outputs.nuget_artifacts}}/*.nupkg
 
       - name: Publish packages to NuGet
@@ -87,7 +87,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: forgekit-provider-namespaced
+          name: magic-assets-provider-namespaced
           path: ${{steps.artifactsPath.outputs.nuget_artifacts}}/*.nupkg
 
       - name: Publish packages to NuGet

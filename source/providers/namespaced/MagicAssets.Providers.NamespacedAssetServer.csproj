@@ -8,7 +8,7 @@
   <PropertyGroup Label="NuGet">
     <Title>MagicAssets Namespaced Asset Server</Title>
     <Description>A lightweight and extensible asset management library for .NET, enabling efficient loading and organization of resources across assemblies and custom providers.</Description>
-    <PackageId>MagicAssets.Providers.AssemblyAssetServer</PackageId>
+    <PackageId>MagicAssets.Providers.NamespacedAssetServer</PackageId>
     <PackageTags>assets;resources;content;magic-assets</PackageTags>
   </PropertyGroup>
   <ItemGroup Label="Project References">

@@ -7,7 +7,7 @@ on:
 
 jobs:
   pack-core:
-    name: Pack (Core)
+    name: Pack
     runs-on: ubuntu-latest
     environment: production
     steps:
@@ -26,60 +26,8 @@ jobs:
       - name: Pack (Core)
         run: dotnet pack -c Release source/core /p:Configuration=Release /p:Version=${{ github.ref_name }} /p:GenerateDocumentationFile=true /p:NoDefaultExcludes=true -o ${{steps.artifactsPath.outputs.nuget_artifacts}}
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: magic-assets
-          path: ${{steps.artifactsPath.outputs.nuget_artifacts}}/*.nupkg
-
-      - name: Publish packages to NuGet
-        run: dotnet nuget push ${{steps.artifactsPath.outputs.nuget_artifacts}}/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
-
-  pack-assembly-provider:
-    name: Pack (Assembly Provider)
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set Artifacts Directory
-        id: artifactsPath
-        run: echo "::set-output name=NUGET_ARTIFACTS::${{github.workspace}}/artifacts"
-
-      - name: Install .NET 8.0.x
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: "8.0.x"
-
       - name: Pack (Assembly Provider)
         run: dotnet pack -c Release source/providers/assembly /p:Configuration=Release /p:Version=${{ github.ref_name }} /p:GenerateDocumentationFile=true /p:NoDefaultExcludes=true -o ${{steps.artifactsPath.outputs.nuget_artifacts}}
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: magic-assets-provider-assembly
-          path: ${{steps.artifactsPath.outputs.nuget_artifacts}}/*.nupkg
-
-      - name: Publish packages to NuGet
-        run: dotnet nuget push ${{steps.artifactsPath.outputs.nuget_artifacts}}/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
-
-  pack-namespaced-provider:
-    name: Pack (Namespaced Provider)
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set Artifacts Directory
-        id: artifactsPath
-        run: echo "::set-output name=NUGET_ARTIFACTS::${{github.workspace}}/artifacts"
-
-      - name: Install .NET 8.0.x
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: "8.0.x"
 
       - name: Pack (Namespaced Provider)
         run: dotnet pack -c Release source/providers/namespaced /p:Configuration=Release /p:Version=${{ github.ref_name }} /p:GenerateDocumentationFile=true /p:NoDefaultExcludes=true -o ${{steps.artifactsPath.outputs.nuget_artifacts}}
@@ -87,7 +35,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: magic-assets-provider-namespaced
+          name: magic-assets
           path: ${{steps.artifactsPath.outputs.nuget_artifacts}}/*.nupkg
 
       - name: Publish packages to NuGet

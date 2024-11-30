@@ -1,3 +1,14 @@
+<p align='center'>
+  <a href='https://github.com/isrcalebe/magic-accets#gh-dark-mode-only' target='_blank' rel='noopener noreferrer'>
+    <img src='./assets/logo-light.svg' alt='isrcalebe/magic-accets'>
+  </a>
+  <a href='https://github.com/isrcalebe/magic-accets#gh-light-mode-only' target='_blank' rel='noopener noreferrer'>
+    <img src='./assets/logo-dark.svg' alt='isrcalebe/magic-accets'>
+  </a>
+</p>
+
+A lightweight and extensible asset management library for .NET, enabling efficient loading and organization of resources across assemblies and custom providers.
+
 # Requirements
 
 - A desktop platform with the [.NET 8.0 SDK](https://dotnet.microsoft.com/download) or higher runtime installed.

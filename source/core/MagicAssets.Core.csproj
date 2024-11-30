@@ -6,7 +6,8 @@
     <AssemblyName>MagicAssets</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Label="NuGet">
-    <Title>Magic Assets</Title>
+    <Title>MagicAssets</Title>
+    <Description>A lightweight and extensible asset management library for .NET, enabling efficient loading and organization of resources across assemblies and custom providers.</Description>
     <PackageId>MagicAssets</PackageId>
     <PackageTags>assets;resources;content;magic-assets</PackageTags>
   </PropertyGroup>

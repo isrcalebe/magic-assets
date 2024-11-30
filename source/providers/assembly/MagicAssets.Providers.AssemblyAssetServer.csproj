@@ -6,12 +6,12 @@
     <AssemblyName>MagicAssets.Providers.AssemblyAssetServer</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Label="NuGet">
-    <Title>Magic Assets</Title>
+    <Title>MagicAssets Assembly Asset Server</Title>
     <Description>A lightweight and extensible asset management library for .NET, enabling efficient loading and organization of resources across assemblies and custom providers.</Description>
     <PackageId>MagicAssets.Providers.AssemblyAssetServer</PackageId>
     <PackageTags>assets;resources;content;magic-assets</PackageTags>
   </PropertyGroup>
-  <ItemGroup>
+  <ItemGroup Label="Project References">
     <ProjectReference Include="..\..\core\MagicAssets.Core.csproj" />
   </ItemGroup>
 </Project>

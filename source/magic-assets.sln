@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicAssets.Providers.Assem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicAssets.Providers.NamespacedAssetServer", "providers\namespaced\MagicAssets.Providers.NamespacedAssetServer.csproj", "{9E907A8C-FF41-4E2F-AAE6-361FD715F4A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicAssets.Tests", "tests\MagicAssets.Tests.csproj", "{10A9E908-C8FD-46F7-A4A0-1312CD3E7A12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{EA304E6A-0905-4C7F-8A5D-ED744FE88907}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA304E6A-0905-4C7F-8A5D-ED744FE88907}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA304E6A-0905-4C7F-8A5D-ED744FE88907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10A9E908-C8FD-46F7-A4A0-1312CD3E7A12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10A9E908-C8FD-46F7-A4A0-1312CD3E7A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10A9E908-C8FD-46F7-A4A0-1312CD3E7A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10A9E908-C8FD-46F7-A4A0-1312CD3E7A12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

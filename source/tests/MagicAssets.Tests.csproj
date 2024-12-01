@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Label="">
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup Label="Package References">
+    <PackageReference Include="Moq" Version="4.20.72" />
+    <PackageReference Include="xunit.v3" Version="0.7.0-pre.15" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.0.0-pre.49">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+  </ItemGroup>
+  <ItemGroup Label="Project References">
+    <ProjectReference Include="..\core\MagicAssets.Core.csproj" />
+    <ProjectReference Include="..\providers\assembly\MagicAssets.Providers.AssemblyAssetServer.csproj" />
+  </ItemGroup>
+  <ItemGroup Label="Embedded Resources">
+    <EmbeddedResource Include="Assets\**\*" />
+  </ItemGroup>
+</Project>

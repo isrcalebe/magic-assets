@@ -1,0 +1,39 @@
+on: [push, pull_request]
+name: Continuous Integration
+
+jobs:
+  test:
+    name: Test
+    runs-on: ${{matrix.os.full_name}}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - { pretty_name: Windows, full_name: windows-latest, configuration: Debug }
+          - { pretty_name: macOS, full_name: macos-latest, configuration: Debug }
+          - { pretty_name: Linux, full_name: ubuntu-latest, configuration: Debug }
+          - { pretty_name: Linux, full_name: ubuntu-latest, configuration: Release }
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install .NET 8.0.x
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Compile
+        run: dotnet build -c ${{matrix.os.configuration}} -warnaserror source/magic-assets.sln
+
+      - name: Test
+        run: dotnet test $pwd/source/tests/bin/${{matrix.os.configuration}}/*/*.Tests.dll --no-build --logger "trx;LogFileName=TestResults-${{matrix.os.pretty_name}}-${{matrix.os.configuration}}.trx"
+        shell: pwsh
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: magic-assets-test-results-${{matrix.os.pretty_name}}-${{matrix.os.configuration}}
+          path: ${{github.workspace}}/TestResults/TestResults-${{matrix.os.pretty_name}}-${{matrix.os.configuration}}.trx

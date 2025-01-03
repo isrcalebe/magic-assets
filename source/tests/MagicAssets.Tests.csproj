@@ -17,6 +17,7 @@
     <ProjectReference Include="..\providers\assembly\MagicAssets.Providers.AssemblyAssetServer.csproj" />
   </ItemGroup>
   <ItemGroup Label="Embedded Resources">
+    <EmbeddedResource Include=".magicrc.json" LogicalName="MAGICRC" />
     <EmbeddedResource Include="Assets\**\*" />
   </ItemGroup>
 </Project>

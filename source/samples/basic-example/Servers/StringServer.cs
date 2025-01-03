@@ -12,7 +12,8 @@ public class StringServer : AssetServer<string>
 
     public StringServer(AssetServer<byte[]> underlyingStore)
     {
-        this.underlyingStore = underlyingStore;
+        this.underlyingStore = new AssetServer<byte[]>(underlyingStore);
+        this.underlyingStore.AddExtension("txt");
     }
 
     public override string? Fetch(string uri)

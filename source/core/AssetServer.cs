@@ -47,9 +47,18 @@ public class AssetServer<T> : IAssetServer<T>
 
         var filenames = GetFilenames(path);
 
-        return (from filename in filenames
-                from server in getServers()
-                select server.Fetch($"{serverName}://{filename}")).FirstOrDefault();
+        foreach (var filename in filenames)
+        {
+            foreach (var server in getServers())
+            {
+                var result = server.Fetch($"{serverName}://{filename}");
+
+                if (result != null)
+                    return result;
+            }
+        }
+
+        return null;
     }
 
     public virtual async Task<T?> FetchAsync(string uri, CancellationToken cancellationToken = default)
@@ -78,9 +87,18 @@ public class AssetServer<T> : IAssetServer<T>
 
         var filenames = GetFilenames(path);
 
-        return (from filename in filenames
-                from server in getServers()
-                select server.FetchStream($"{serverName}://{filename}")).FirstOrDefault();
+        foreach (var server in getServers())
+        {
+            foreach (var filename in filenames)
+            {
+                var stream = server.FetchStream($"{serverName}://{filename}");
+
+                if (stream != null)
+                    return stream;
+            }
+        }
+
+        return null;
     }
 
     /// <summary>

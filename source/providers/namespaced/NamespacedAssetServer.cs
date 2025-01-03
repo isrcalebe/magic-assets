@@ -41,7 +41,7 @@ public partial class NamespacedAssetServer<T> : AssetServer<T>
         var assets = base.GetAvailableAssets()
             .Where(asset =>
             {
-                var (serverName, path) = asset.ParseUri();
+                var (_, path) = asset.ParseUri();
 
                 return path.StartsWith($"{Namespace}/", StringComparison.Ordinal);
             })

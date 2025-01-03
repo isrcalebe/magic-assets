@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using MagicAssets.Core;
-using MagicAssets.Core.AssemblyInfo;
 using MagicAssets.Core.Extensions.StreamExtensions;
 using MagicAssets.Core.Extensions.StringExtensions;
 
@@ -25,7 +25,6 @@ public class AssemblyAssetServer : IAssetServer<byte[]>
     /// Initializes a new instance of the <see cref="AssemblyAssetServer"/> class.
     /// </summary>
     /// <param name="assemblyName">The name of the assembly to load.</param>
-    /// <exception cref="InvalidOperationException">Thrown if the assembly does not contain the required <see cref="AssetServerAttribute"/>.</exception>
     public AssemblyAssetServer(string assemblyName)
     {
         var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, assemblyName);
@@ -36,31 +35,47 @@ public class AssemblyAssetServer : IAssetServer<byte[]>
 
         prefix = Path.GetFileNameWithoutExtension(assemblyName);
 
-        var attribute = assembly.GetCustomAttribute(typeof(AssetServerAttribute));
+        using var magicRc = assembly.GetManifestResourceStream("MAGICRC");
 
-        if (attribute is AssetServerAttribute serverNameAttribute)
-            serverName = serverNameAttribute.ServerName;
-        else
-            throw new InvalidOperationException($"The assembly \"{assembly.FullName}\" does not contain the required {typeof(AssetServerAttribute)}.");
+        if (magicRc == null)
+            throw new InvalidOperationException("The assembly does not contain the MAGICRC resource.");
+
+        var magicRcInfo = JsonSerializer.Deserialize<AssemblyAssetInfo>(magicRc);
+
+        if (magicRcInfo == null)
+            throw new InvalidOperationException("The MAGICRC resource could not be deserialized.");
+
+        if (!magicRcInfo.ServerName.IsKebabCase())
+            throw new FormatException("The server name in the MAGICRC resource is not in kebab-case.");
+
+        serverName = magicRcInfo.ServerName;
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="AssemblyAssetServer"/> class.
     /// </summary>
     /// <param name="assembly">The assembly to load.</param>
-    /// <exception cref="InvalidOperationException">Thrown if the assembly does not contain the required <see cref="AssetServerAttribute"/>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown if the assembly does not contain an asset provider.</exception>
+    /// <exception cref="InvalidOperationException">Thrown if the asset provider could not be created.</exception>
     public AssemblyAssetServer(Assembly assembly)
     {
         this.assembly = assembly;
         prefix = assembly.GetName().Name ?? string.Empty;
 
-        var attribute = assembly.GetCustomAttribute(typeof(AssetServerAttribute));
+        using var magicRc = assembly.GetManifestResourceStream("MAGICRC");
 
-        if (attribute is AssetServerAttribute serverNameAttribute)
-            serverName = serverNameAttribute.ServerName;
-        else
-            throw new InvalidOperationException($"The assembly \"{assembly.FullName}\" does not contain the required {typeof(AssetServerAttribute)}.");
+        if (magicRc == null)
+            throw new InvalidOperationException("The assembly does not contain the MAGICRC resource.");
 
+        var magicRcInfo = JsonSerializer.Deserialize<AssemblyAssetInfo>(magicRc);
+
+        if (magicRcInfo == null)
+            throw new InvalidOperationException("The MAGICRC resource could not be deserialized.");
+
+        if (!magicRcInfo.ServerName.IsKebabCase())
+            throw new FormatException("The server name in the MAGICRC resource is not in kebab-case.");
+
+        serverName = magicRcInfo.ServerName;
     }
 
     /// <summary>
@@ -120,7 +135,7 @@ public class AssemblyAssetServer : IAssetServer<byte[]>
             var assetName = new string(chars);
 
             return new string($"{serverName}://" + assetName);
-        });
+        }).ExcludeSystemFileNames();
 
     #region IDisposable Support
 

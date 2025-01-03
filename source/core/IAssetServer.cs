@@ -47,14 +47,17 @@ public interface IAssetServer<T> : IDisposable
 /// </summary>
 public static class AssetServerExtensions
 {
-    private static readonly string[] system_filename_ignore_list =
+    private static readonly string[] filename_ignore_list =
     {
         // Mac-specific
         "__MACOSX",
         ".DS_Store",
 
         // Windows-specific
-        "Thumbs.db"
+        "Thumbs.db",
+
+        // MagicAssets-specific
+        "MAGICRC"
     };
 
     /// <summary>
@@ -63,5 +66,5 @@ public static class AssetServerExtensions
     /// <param name="source">The source collection of file names.</param>
     /// <returns>The collection of file names with common noise files removed.</returns>
     public static IEnumerable<string> ExcludeSystemFileNames(this IEnumerable<string> source)
-        => source.Where(entry => !system_filename_ignore_list.Any(ignored => entry.Contains(ignored, StringComparison.OrdinalIgnoreCase)));
+        => source.Where(entry => !filename_ignore_list.Any(ignored => entry.Contains(ignored, StringComparison.OrdinalIgnoreCase)));
 }

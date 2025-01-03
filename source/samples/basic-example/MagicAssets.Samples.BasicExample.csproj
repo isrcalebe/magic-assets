@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup Label="Embedded Resources">
+    <EmbeddedResource Include=".magicrc.json" LogicalName="MAGICRC"/>
     <EmbeddedResource Include="Texts/**/*" />
   </ItemGroup>
   <ItemGroup Label="Project References">
